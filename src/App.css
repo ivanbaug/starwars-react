@@ -41,7 +41,8 @@
 # Header
 --------------------------------------------------------------*/
 #header {
-  background: rgba(25, 25, 25, 0.95);
+  --bs-bg-opacity: 0.85;
+  background: rgba(25, 25, 25, 0.8);
   transition: all 0.5s;
   z-index: 997;
   height: 70px;
@@ -50,13 +51,14 @@
   background: #191919;
 }
 #header .logo {
-  font-size: 30px;
+  font-size: 25px;
   margin: 0;
   padding: 0;
   line-height: 1;
   font-weight: 700;
   letter-spacing: 2px;
   text-transform: uppercase;
+  color: whitesmoke;
 }
 #header .logo a {
   color: #fff;
@@ -66,7 +68,7 @@
 }
 
 .scrolled-offset {
-  margin-top: 70px;
+  margin-top: 60px;
 }
 
 /*--------------------------------------------------------------
@@ -91,12 +93,17 @@
 .navbar > ul > li {
   margin-left: 5px;
 }
+
+.navbar-brand {
+  font-size: large !important;
+  font-weight: 600;
+}
 .navbar a,
 .navbar a:focus {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 25px 15px 24px 15px;
+  padding: 25px 25px;
   font-size: 14px;
   color: #fff;
   white-space: nowrap;
@@ -138,6 +145,10 @@
 .navbar .dropdown ul a i {
   font-size: 12px;
 }
+
+.collapse.show {
+  background-color: #191919cc;
+}
 .navbar .dropdown ul a:hover,
 .navbar .dropdown ul .active:hover,
 .navbar .dropdown ul li:hover > a {
@@ -159,6 +170,7 @@
   left: 100%;
   visibility: visible;
 }
+
 @media (max-width: 1366px) {
   .navbar .dropdown .dropdown ul {
     left: -90%;
@@ -166,4 +178,98 @@
   .navbar .dropdown .dropdown:hover > ul {
     left: -100%;
   }
+}
+
+/*--------------------------------------------------------------
+# Login and BG Video
+--------------------------------------------------------------*/
+/* Style the video: 100% width and height to cover the entire window */
+.videoTag {
+  position: fixed;
+  right: 0;
+  top: 0;
+  min-width: 100%;
+  min-height: 100%;
+  z-index: -1;
+  opacity: 0.98;
+  transform: translateX(calc((100% - 100vw) / 2));
+}
+
+.myLogin {
+  /* background-color: #fafafa; */
+  padding: 2rem;
+  color: whitesmoke;
+}
+.myLogin h2 {
+  color: #fff;
+}
+
+/* Firefx needs this for some reason */
+.myLogin .input-group {
+  flex-wrap: nowrap;
+}
+
+.myLogin button,
+.myLogin fieldset,
+.myLogin input,
+.myLogin input:-webkit-autofill,
+.myLogin legend,
+.myLogin select,
+.myLogin textarea {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  background-color: transparent;
+  border: none;
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+/* Neccessary for autofill styles */
+.myLogin input:-webkit-autofill,
+.myLogin input:-webkit-autofill:hover,
+.myLogin input:-webkit-autofill:focus,
+.myLogin input:-webkit-autofill:active {
+  background-color: rgba(255, 255, 255, 0.2) !important;
+  /* -webkit-box-shadow: 0 0 0px 1000px rgba(255, 255, 255, 0.15) inset !important; */
+  /* -moz-box-shadow: 0 0 0px 1000px rgba(255, 255, 255, 0.15) inset !important; */
+  transition: background-color 10000s ease-in-out 0s;
+  -webkit-text-fill-color: whitesmoke;
+  padding: 0.4rem;
+  border: none;
+}
+
+.myLogin fieldset,
+.myLogin input:-webkit-autofill,
+.myLogin input[type="email"],
+.myLogin input[type="password"],
+.myLogin legend,
+.myLogin select,
+.myLogin textarea,
+span.input-group-text {
+  background-color: rgba(255, 255, 255, 0.2) !important;
+  padding: 0.4rem;
+  border: none;
+  color: whitesmoke;
+}
+
+.myLogin button {
+  background-color: rgba(240, 248, 255, 0.8);
+  color: rgba(0, 0, 0, 0.9);
+  padding: 0.3rem;
+  font-size: large;
+  font-weight: 700;
+}
+.myLogin span.input-group-text {
+  background-color: rgba(255, 255, 255, 0.2);
+  border: none;
+  border-right: whitesmoke;
+  color: whitesmoke;
+  padding: 5px 10px !important;
+}
+
+#login-img {
+  max-width: 50%;
+  margin: 0 auto;
 }
