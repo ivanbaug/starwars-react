@@ -43,11 +43,17 @@ export const listPeople = (cList = []) => async (dispatch) => {
     dispatch({ type: PEOPLE_LIST_REQUEST })
 
     const people = await Promise.all(
-      cList.map(async (movie) => {
-        let id = Number(movie.split('/')[5])
-        let { data } = await axios.get(movie)
+      cList.map(async (person) => {
+        let id = Number(person.split('/')[5])
+        let { data } = await axios.get(person)
+        // console.table(data)
+        let { data: homeworld_name } = await axios.get(data.homeworld)
 
-        return { 'id': id, ...data }
+        return {
+          'id': id,
+          ...data,
+          'homeworld_name': homeworld_name.name,
+        }
       })
     )
     // const { data } =  axios.get(`${MY_API_URL}/api/products${keyword}`)
