@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { Link, useLocation, useNavigate } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 import { Button, Form, Col, Row, Image, InputGroup } from 'react-bootstrap';
 import swbg from '../swbg.mp4';
 import FormContainer from '../components/FormContainer';
@@ -15,7 +15,6 @@ const LoginScreen = () => {
 
 
   const dispatch = useDispatch()
-  const location = useLocation()
   const navigate = useNavigate()
 
   const userLogin = useSelector(state => state.userLogin)
@@ -25,6 +24,13 @@ const LoginScreen = () => {
     e.preventDefault()
     dispatch(login(username, password))
   }
+
+  useEffect(() => {
+    if (userInfo) {
+      navigate('/')
+    }
+  }, [navigate, userInfo])
+
   return (
     <>
       <video className='videoTag' autoPlay loop muted>

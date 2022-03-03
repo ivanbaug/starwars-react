@@ -3,11 +3,9 @@ import {
   USER_LOGIN_SUCCESS,
   USER_LOGIN_FAIL,
   USER_LOGOUT,
-  USER_DETAILS_REQUEST,
-  USER_DETAILS_SUCCESS,
-  USER_DETAILS_FAIL,
   USER_DETAILS_RESET,
 } from '../constants/userConstants'
+import { CHARACTER_LIST_REMOVE, MOVIE_LIST_REMOVE } from '../constants/movieConstants'
 import { SW_API_URL, SECRET_KEY } from '../constants/apiConstants'
 import axios from 'axios'
 // import aes from 'crypto-js/aes'
@@ -69,6 +67,6 @@ export const logout = () => (dispatch) => {
   localStorage.removeItem('userInfo')
   dispatch({ type: USER_LOGOUT })
   dispatch({ type: USER_DETAILS_RESET })
-  // dispatch({ type: USER_LIST_RESET })
-  // dispatch({ type: USER_REGISTER_RESET })
+  dispatch({ type: MOVIE_LIST_REMOVE })
+  dispatch({ type: CHARACTER_LIST_REMOVE })
 }

@@ -18,17 +18,16 @@ const Header = () => {
     <Navbar bg="dark" expand="lg" variant="dark" id='header'>
       <Container >
         <h1 className="logo">Demo APP</h1>
-        {/* <Navbar.Brand href="#home"></Navbar.Brand> */}
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
-        <Navbar.Collapse id="basic-navbar-nav" >
-          <Nav className="ms-auto ">
-            <Nav.Link href="#home">Login</Nav.Link>
-            <Nav.Link href="#link">List</Nav.Link>
-            {
-              userInfo && <Nav.Link onClick={logoutHandler}>Logout</Nav.Link>
-            }
-          </Nav>
-        </Navbar.Collapse>
+        {
+          userInfo &&
+          <Navbar.Collapse id="basic-navbar-nav" >
+            <Nav className="ms-auto ">
+              <Nav.Link to="/">Home</Nav.Link>
+              <Nav.Link onClick={logoutHandler}>Logout</Nav.Link>
+            </Nav>
+          </Navbar.Collapse>
+        }
       </Container>
     </Navbar>
   )
