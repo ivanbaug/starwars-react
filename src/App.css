@@ -242,7 +242,7 @@
 
 .myLogin fieldset,
 .myLogin input:-webkit-autofill,
-.myLogin input[type="email"],
+.myLogin input[type="text"],
 .myLogin input[type="password"],
 .myLogin legend,
 .myLogin select,

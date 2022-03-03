@@ -1,16 +1,29 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
+import { useDispatch, useSelector } from 'react-redux'
+import { Link, useLocation, useNavigate } from 'react-router-dom'
 import { Button, Form, Col, Row, Image, InputGroup } from 'react-bootstrap';
-import FormContainer from '../components/FormContainer';
 import swbg from '../swbg.mp4';
+import FormContainer from '../components/FormContainer';
+import Loader from '../components/Loader'
+import Message from '../components/Message'
+import { login } from '../actions/userActions';
 
 
 const LoginScreen = () => {
-  const [email, setEmail] = useState('')
+  const [username, setUsername] = useState('')
   const [password, setPassword] = useState('')
+
+
+  const dispatch = useDispatch()
+  const location = useLocation()
+  const navigate = useNavigate()
+
+  const userLogin = useSelector(state => state.userLogin)
+  const { error, loading, userInfo } = userLogin
 
   const submitHandler = (e) => {
     e.preventDefault()
-    // dispatch(login(email, password))
+    dispatch(login(username, password))
   }
   return (
     <>
@@ -18,26 +31,31 @@ const LoginScreen = () => {
         <source src={swbg} type='video/mp4' />
       </video>
       <FormContainer >
-        <Col className='myLogin mt-5 '>
+
+        <Col className='myLogin mt-5'>
           <Row >
             <Image fluid src='/res/xwing.png' id='login-img'  ></Image>
           </Row>
           <Row className='text-center my-4'>
             <h2>WELCOME BACK</h2>
           </Row>
+          <Row>
+            {error && <Message variant='danger'>{error}</Message>}
+            {loading && <Loader />}
+          </Row>
           <Form onSubmit={submitHandler}>
-            <InputGroup controlId='email' className='mb-3'>
+            <InputGroup className='mb-3'>
               <InputGroup.Text >
                 <i className='fas fa-user' />
               </InputGroup.Text>
               <Form.Control
-                type='email'
-                placeholder='Enter Email'
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
+                type='text'
+                placeholder='Enter username'
+                value={username}
+                onChange={(e) => setUsername(e.target.value)}
               />
             </InputGroup>
-            <InputGroup controlId='password' className='mb-3'>
+            <InputGroup className='mb-3'>
               <InputGroup.Text>
                 <i className='fas fa-key' />
               </InputGroup.Text>

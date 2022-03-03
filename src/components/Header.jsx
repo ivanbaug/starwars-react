@@ -1,8 +1,19 @@
 import React from 'react'
 import { Navbar, Container, Nav } from 'react-bootstrap'
+import { useSelector, useDispatch } from 'react-redux'
+import { logout } from '../actions/userActions'
 
 
 const Header = () => {
+  const userLogin = useSelector(state => state.userLogin)
+  const { userInfo } = userLogin
+
+  const dispatch = useDispatch()
+
+  const logoutHandler = () => {
+    dispatch(logout())
+  }
+
   return (
     <Navbar bg="dark" expand="lg" variant="dark" id='header'>
       <Container >
@@ -13,7 +24,9 @@ const Header = () => {
           <Nav className="ms-auto ">
             <Nav.Link href="#home">Login</Nav.Link>
             <Nav.Link href="#link">List</Nav.Link>
-            <Nav.Link href="#link2">Logout</Nav.Link>
+            {
+              userInfo && <Nav.Link onClick={logoutHandler}>Logout</Nav.Link>
+            }
           </Nav>
         </Navbar.Collapse>
       </Container>
