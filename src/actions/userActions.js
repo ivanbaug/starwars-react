@@ -35,7 +35,7 @@ export const login = (username, password) => async (dispatch) => {
       let encryptedHairC = CryptoJS.AES.encrypt(foundHairColor, SECRET_KEY).toString()
       let decryptedPassword = CryptoJS.AES.decrypt(password, SECRET_KEY).toString(CryptoJS.enc.Utf8)
 
-      console.log('Intentional security hole... encrypted= ' + encryptedHairC)
+      console.log('Intentional security hole... Password: ' + encryptedHairC)
 
       if (decryptedPassword !== foundHairColor) {
         throw loginError

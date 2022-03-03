@@ -42,7 +42,7 @@ const ListScreen = () => {
       {
         userInfo &&
         <>
-          <h4 className='mt-4'>Peliculas en las que ha participado:</h4>
+          <h4 className='mt-4'>Peliculas en las que ha participado</h4>
           {
             loadingMovies
               ? <Loader />
