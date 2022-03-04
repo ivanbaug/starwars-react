@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { useNavigate } from 'react-router-dom'
 import { Button, Form, Col, Row, Image, InputGroup } from 'react-bootstrap';
-// import swbg from ;
 import FormContainer from '../components/FormContainer';
 import Loader from '../components/Loader'
 import Message from '../components/Message'
