@@ -34,13 +34,13 @@ const LoginScreen = () => {
   return (
     <>
       <video className='videoTag' autoPlay loop muted>
-        <source src='/res/swbg.mp4' type='video/mp4' />
+        <source src='https://starwars-demo.s3.amazonaws.com/swbg.mp4' type='video/mp4' />
       </video>
       <FormContainer >
 
         <Col className='myLogin mt-5'>
           <Row >
-            <Image fluid src='/res/xwing.png' id='login-img'  ></Image>
+            <Image fluid src='https://starwars-demo.s3.amazonaws.com/xwing.png' id='login-img'  ></Image>
           </Row>
           <Row className='text-center my-4'>
             <h2>WELCOME BACK</h2>
