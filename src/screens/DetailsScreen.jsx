@@ -43,6 +43,8 @@ const DetailsScreen = () => {
 
     }
   }, [navigate, userInfo, dispatch, movies, params, movie])
+
+
   return (
     <DetailsContainer>
       {

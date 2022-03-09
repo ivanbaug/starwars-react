@@ -13,7 +13,6 @@ export const userLoginReducer = (state = {}, action) => {
       return {
         loading: false,
         userInfo: action.payload,
-        // userInfo: jwt_decode(action.payload.access),
       }
     case USER_LOGIN_FAIL:
       return { loading: false, error: action.payload }
