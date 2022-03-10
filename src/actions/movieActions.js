@@ -5,7 +5,11 @@ import {
   PEOPLE_LIST_REQUEST,
   PEOPLE_LIST_SUCCESS,
   PEOPLE_LIST_FAIL,
+  MOVIE_DETAIL_REQUEST,
+  MOVIE_DETAIL_SUCCESS,
+  MOVIE_DETAIL_FAIL,
 } from '../constants/movieConstants'
+import { SW_API_URL } from '../constants/apiConstants'
 import axios from 'axios'
 
 export const listMovies =
@@ -67,3 +71,22 @@ export const listPeople =
       })
     }
   }
+
+export const getMovieDetails = (id) => async (dispatch) => {
+  try {
+    dispatch({ type: MOVIE_DETAIL_REQUEST })
+    const { data } = await axios.get(`${SW_API_URL}/films/${id}/`)
+    dispatch({
+      type: MOVIE_DETAIL_SUCCESS,
+      payload: { id: id, ...data },
+    })
+  } catch (error) {
+    dispatch({
+      type: MOVIE_DETAIL_FAIL,
+      payload:
+        error.response && error.response.data.detail
+          ? error.response.data.detail
+          : error.message,
+    })
+  }
+}

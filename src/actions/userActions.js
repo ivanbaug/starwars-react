@@ -8,6 +8,7 @@ import {
 import {
   PEOPLE_LIST_REMOVE,
   MOVIE_LIST_REMOVE,
+  MOVIE_DETAIL_REMOVE,
 } from '../constants/movieConstants'
 import { SW_API_URL, SECRET_KEY } from '../constants/apiConstants'
 import axios from 'axios'
@@ -69,5 +70,6 @@ export const logout = () => (dispatch) => {
   dispatch({ type: USER_LOGOUT })
   dispatch({ type: USER_DETAILS_RESET })
   dispatch({ type: MOVIE_LIST_REMOVE })
+  dispatch({ type: MOVIE_DETAIL_REMOVE })
   dispatch({ type: PEOPLE_LIST_REMOVE })
 }

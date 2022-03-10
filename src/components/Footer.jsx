@@ -15,7 +15,7 @@ const Footer = () => {
         <Row>
           <Col className={`text-center pb-3 ${!userInfo && 'text-light'}`}>
             Check the code in my{' '}
-            <a href="https://github.com/ivanbaug/cafe-wifi">
+            <a href="https://github.com/ivanbaug/starwars-react">
               Github <i className="fab fa-github" />
             </a>
           </Col>
