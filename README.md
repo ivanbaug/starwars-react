@@ -1,3 +1,12 @@
+# Working demo:
+You can see the working demo at: https://ivanbaug.github.io/starwars-react/
+
+For test purposes you can use the following username/pass:
+
+User: R2-D2
+
+Pass: U2FsdGVkX1+UMlYgkq3ZBsuESaf7gf9jR5bWokMpFeU=
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
